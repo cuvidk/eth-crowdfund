@@ -22,9 +22,9 @@ contract CrowdfundCampaign {
   uint public contributorsCount;
   SpendingRequest[] public requests;
 
-  constructor(uint minimum) {
+  constructor(uint minimum, address campaignOwner) {
     minimumContribution = minimum;
-    owner = msg.sender;
+    owner = campaignOwner;
   }
 
   function contribute() public payable {
