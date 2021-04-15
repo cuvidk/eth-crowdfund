@@ -53,6 +53,7 @@ contract CrowdfundCampaign {
 
   function finalizeRequest(uint id) public payable ownerOnly {
     SpendingRequest storage request = requests[id];
+    require(request.value <= address(this).balance, "Balance to low to finalize the transaction");
     require(request.approvalsCount > contributorsCount / 2, "Not enough approvals");
     require(!request.completed, "Request already completed");
     request.recipient.transfer(request.value);
