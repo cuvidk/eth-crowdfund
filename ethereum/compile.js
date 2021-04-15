@@ -7,7 +7,7 @@ const SOURCE_DIR_NAME = "contracts";
 const BUILD_DIR_NAME = "build";
 
 const contractsPath = path.resolve(__dirname, SOURCE_DIR_NAME);
-const buildPath = path.resolve(__dirname, "..", "..", BUILD_DIR_NAME);
+const buildPath = path.resolve(__dirname, BUILD_DIR_NAME);
 
 const srcsPaths = srcs.map((src) => {
   return path.resolve(contractsPath, src);
@@ -39,7 +39,7 @@ const output = JSON.parse(solc.compile(JSON.stringify(input)));
 for (let contractPath in output.contracts) {
   for (let contract in output.contracts[contractPath]) {
     fs.writeFileSync(
-      path.resolve(buildPath, contract + ".out"),
+      path.resolve(buildPath, contract + ".json"),
       JSON.stringify(output.contracts[contractPath][contract]),
       { encoding: "utf8", flag: "w" }
     );

@@ -15,7 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "compile-contracts": "node src/ethereum/compile.js"
+    "compile-contracts": "node ethereum/compile.js"
   },
   "eslintConfig": {
     "extends": [
