@@ -32,7 +32,7 @@ const web3 = new Web3(provider);
 
   if (!result) return;
 
-  const outContent = "\nREACT_APP_CONTRACT_ADDR = " + result.options.address;
+  const outContent = "\nCONTRACT_ADDR = " + result.options.address;
   const outPath = path.resolve(__dirname, "..", ".env");
 
   fs.writeFileSync(outPath, outContent, { encoding: "utf8", flag: "a" });
