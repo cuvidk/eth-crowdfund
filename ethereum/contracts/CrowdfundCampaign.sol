@@ -59,4 +59,16 @@ contract CrowdfundCampaign {
     request.recipient.transfer(request.value);
     request.completed = true;
   }
+
+  function getSummary() public view returns(
+    uint, uint, uint, uint, address
+  ) {
+    return (
+      minimumContribution,
+      (address(this)).balance,
+      requests.length,
+      contributorsCount,
+      owner
+    );
+  }
 }

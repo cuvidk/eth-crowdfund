@@ -1,11 +1,12 @@
 import Web3 from "web3";
-import HDWalletProvider from "@truffle/hdwallet-provider";
 
-let provider;
+let web3;
 if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
-  provider = window.ethereum;
+  web3 = new Web3(window.ethereum);
 } else {
-  provider = new Web3.providers.HttpProvider(process.env.BCHAIN_CONN_PROVIDER);
+  web3 = new Web3(
+    new Web3.providers.HttpProvider(process.env.BCHAIN_CONN_PROVIDER)
+  );
 }
 
-export default new Web3(provider);
+export default web3;

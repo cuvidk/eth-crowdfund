@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Container, Card } from "semantic-ui-react";
 import Link from "next/link";
 
-import web3 from "../web3";
 import factory from "../CampaignFactory";
 import "../components/Layout";
 import Layout from "../components/Layout";
@@ -36,6 +35,8 @@ const Index = ({ campaigns }) => {
   );
 };
 
+// TODO: use getStaticProps instead with an
+// refresh interval of 20 secs ?
 export async function getServerSideProps() {
   const campaigns = await factory.methods.getCampaigns().call();
   return {

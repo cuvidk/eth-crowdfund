@@ -20,7 +20,7 @@ const web3 = new Web3(provider);
     })
     .send({
       from: sender,
-      gas: "1500000",
+      gas: "2000000",
     })
     .on("sending", () => {
       console.log("Deploying contract...");
